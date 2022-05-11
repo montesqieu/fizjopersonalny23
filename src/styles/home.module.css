@@ -1,0 +1,136 @@
+/* First screen */
+
+.first_screen {
+    background: radial-gradient(at top left, #349EFF 0%, #002546 100%);
+    background-repeat: no-repeat;
+    margin: 0;
+}
+.header {
+    display: grid;
+    grid-template-rows: 1 1;
+    align-items: center;
+}
+.header_info {
+    text-align: center;
+    color: #fff;
+    padding: 3em 2em;
+}
+.header_info span {
+    text-transform: uppercase;
+    font-size: .875em;
+    font-weight: 500;
+}
+.header_info h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0 1em 0;
+}
+.header_info p {
+    font-size: .875em;
+    font-weight: 300;
+    line-height: 2em;
+}
+.header_img {
+    background-color: transparent;
+}
+.btn {
+    margin-top: 3em;
+}
+.btn_box {
+    margin-top: 3em;
+}
+
+/* Second  screen */
+.second_screen {
+    color: #000;
+    text-align: center;
+    padding: 3em 2em;
+}
+.section_header {
+    text-transform: uppercase;
+    font-size: .875em;
+    font-weight: 700;
+    color: #349eff
+}
+.section_subheader {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0 1em 0;
+}
+.section_paragraph {
+    font-size: .875em;
+    line-height: 2em;
+}
+.grid_box {
+    display: grid;
+    row-gap: 10px;
+    margin: 2em 0;
+}
+.grid_item {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 20px;
+    line-height: 2em;
+}
+.grid_icon {
+    font-size: 3em;
+    color: #349eff;
+    padding-bottom: 10px;
+}
+.testimonial_screen {
+    background-color: #349EFF;
+    text-align: center;
+    padding: 3em 2em;
+}
+.testimonial_grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 80px;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .first_screen {
+        padding: 40px 40px 0 40px
+    }
+    .header {
+        grid-template-columns: 40% 60%;
+    }
+    .header_img {
+        order: 1;
+        align-self: end;
+        padding: 40px 40px 0 40px;
+    }
+    .header_info {
+        order: -1;
+        text-align: left;
+        padding: 0;
+        align-self: start;
+        padding: 40px 0 40px 40px;
+    }
+    .btn_box{
+        display: flex;
+        flex-direction: row;
+    }
+    .btn_2 {
+        margin-left: 20px;
+    }
+    .grid_box {
+        grid-template-columns: auto auto auto;
+        column-gap: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .btn_box {
+        flex-direction: column;
+    }
+    .btn_2 {
+        margin: 20px 0 0 0;
+    }
+
+}
