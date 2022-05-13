@@ -5,7 +5,7 @@ import Button1 from '../components/Button1'
 import Button2 from '../components/Button2'
 import { graphql, Link } from 'gatsby'
 import {
-          first_screen,
+          header_screen,
           header,
           header_info,
           header_img,
@@ -20,8 +20,15 @@ import {
           grid_box,
           grid_item,
           grid_icon,
+          value_screen,
           testimonial_screen,
-          testimonial_grid
+          testimonial_grid,
+          testimonial_item,
+          testimonial_stars,
+          testimonial_text,
+          testimonial_client,
+          testimonial_profession,
+          testimonial_source,
         }
         from '../styles/home.module.css'
 import { GiBackPain } from "@react-icons/all-files/gi/GiBackPain";
@@ -30,15 +37,38 @@ import { FaFlagCheckered } from "@react-icons/all-files/fa/FaFlagCheckered";
 import { FaRunning } from "@react-icons/all-files/fa/FaRunning";
 import { GiShrimp } from "@react-icons/all-files/gi/GiShrimp";
 import { GiStopSign } from "@react-icons/all-files/gi/GiStopSign";
+import { FaStar } from "@react-icons/all-files/fa/FaStar";
 import { GatsbyImage } from "gatsby-plugin-image"
+
+function shuffle(array) {
+  const length = array == null ? 0 : array.length;
+
+  if (!length) {
+    return [];
+  }
+
+  let index = -1;
+
+  const lastIndex = length - 1;
+  const result = [...array];
+
+  while (++index < length) {
+    const rand = index + Math.floor(Math.random() * (lastIndex - index + 1));
+    const value = result[rand];
+    result[rand] = result[index];
+    result[index] = value;
+  }
+
+  return result;
+}
 
 export default function Home({ data }) {
   console.log(data)
-  const testimonial = data.testimonials.nodes
+  const testimonial = shuffle(data.testimonial.nodes).slice(0, 4);
   
   return (
     <Layout>
-      <div className={first_screen}>
+      <div className={header_screen}>
           <Navbar />
         <div className={header}>
           <div className={header_img}>
@@ -90,16 +120,57 @@ export default function Home({ data }) {
           <Button1 />
         </div>
       </div>
+      <div className={value_screen}>
+        <h2 className={section_header}>Fizjoterapia i trening - zestaw kompletny</h2>
+        <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
+        <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div className={btn}>
+          <Button1 />
+        </div>
+      </div>
       <div className={testimonial_screen}>
         <div className={testimonial_grid}>
           {testimonial.map(testimonial => (
-            <div>
-              <h3>{testimonial.frontmatter.client}</h3>
-              <p>{testimonial.frontmatter.profession}</p>
-              <p>{testimonial.frontmatter.opinion}</p>
-              <p>{testimonial.frontmatter.source}</p>
+            <div className={testimonial_item}>
+              <div className={testimonial_stars}><FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /></div>
+              <div className={testimonial_text}>{testimonial.frontmatter.opinion}</div>
+              <div className={testimonial_client}>{testimonial.frontmatter.client}</div>
+              <div className={testimonial_profession}>{testimonial.frontmatter.profession}</div>
+              <div className={testimonial_source}>źródło: {testimonial.frontmatter.source}</div>
             </div>
             ))}
+        </div>
+      </div>
+      <div className={value_screen}>
+        <h2 className={section_header}>Fizjoterapia i trening - zestaw kompletny</h2>
+        <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
+        <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div>test test test test test test test test test test test test </div>
+        <div className={btn}>
+          <Button1 />
         </div>
       </div>
     </Layout>
@@ -113,7 +184,7 @@ query Home {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-  testimonials: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(testimonials)/"}}) {
+  testimonial: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(testimonials)/"}}) {
     nodes {
       frontmatter {
         client
