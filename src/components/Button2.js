@@ -29,9 +29,7 @@ const Btn = styled.button`
 export default function Button() {
   return (
     <Link to='/#scroll'>
-      <Btn type="button">
-        <span>Przewiń dalej</span>
-      </Btn>
+      <Btn type="button">Przewiń dalej</Btn>
     </Link>
   )
 }
