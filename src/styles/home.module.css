@@ -1,7 +1,6 @@
-/* First screen */
-
-.first_screen {
-    background: radial-gradient(at top left, #349EFF 0%, #002546 100%);
+/* Header screen */
+.header_screen {
+    background: linear-gradient(135deg, #349EFF 0%, #002546 100%);
     background-repeat: no-repeat;
     margin: 0;
 }
@@ -79,20 +78,57 @@
     color: #349eff;
     padding-bottom: 10px;
 }
-.testimonial_screen {
-    background-color: #349EFF;
+
+/* Value  screen */
+.value_screen {
+    background-color: #e0f0ff;
+    margin: 0;
+    color: #000;
     text-align: center;
     padding: 3em 2em;
 }
+
+/* Testimonial  screen */
+.testimonial_screen {
+    background-color: #000;
+    text-align: center;
+    padding: 40px;
+}
 .testimonial_grid {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 80px;
+    row-gap: 40px;
+    color: #fff;
+}
+.testimonial_item {
+    margin: 20px 0;
+}
+.testimonial_stars {
+    color: gold;
+    font-size: 1.5em;
+}
+.testimonial_text {
+    font-size: .875em;
+    font-weight: 400;
+    line-height: 2em;
+    margin: 20px 0;
+}
+.testimonial_client {
+    font-size: 1.125em;
+    font-weight: 600;
+}
+.testimonial_profession {
+    font-size: .875em;
+    font-weight: 400;
+    margin: 6px 0;
+}
+.testimonial_source {
+    font-size: .875em;
+    font-weight: 400;
 }
 
 @media only screen and (min-width: 768px) {
 
-    .first_screen {
+    .header_screen {
         padding: 40px 40px 0 40px
     }
     .header {
@@ -120,6 +156,10 @@
     .grid_box {
         grid-template-columns: auto auto auto;
         column-gap: 10px;
+    }
+    .testimonial_grid {
+        grid-template-columns: auto auto;
+        column-gap: 40px
     }
 
 }
