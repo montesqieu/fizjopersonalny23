@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     margin: 0;
 }
-.header {
+.header_box {
     display: grid;
     grid-template-rows: 1 1;
     align-items: center;
@@ -35,12 +35,12 @@
 .btn {
     margin-top: 3em;
 }
-.btn_box {
+.header_btn_box {
     margin-top: 3em;
 }
 
-/* Second  screen */
-.second_screen {
+/* Client screen */
+.client_screen {
     color: #000;
     text-align: center;
     padding: 3em 2em;
@@ -60,12 +60,12 @@
     font-size: .875em;
     line-height: 2em;
 }
-.grid_box {
+.client_grid_box {
     display: grid;
     row-gap: 10px;
     margin: 2em 0;
 }
-.grid_item {
+.client_grid_item {
     text-transform: uppercase;
     text-align: center;
     font-size: 13px;
@@ -73,7 +73,7 @@
     padding: 20px;
     line-height: 2em;
 }
-.grid_icon {
+.client_grid_icon {
     font-size: 3em;
     color: #349eff;
     padding-bottom: 10px;
@@ -88,42 +88,47 @@
     padding: 3em 2em;
 }
 
-/* Testimonial  screen */
-.testimonial_screen {
+/* Reference  screen */
+.ref_screen {
     background-color: #000;
     text-align: center;
     padding: 40px;
 }
-.testimonial_grid {
+.ref_grid {
     display: grid;
     row-gap: 40px;
     color: #fff;
 }
-.testimonial_item {
+.ref_item {
     margin: 20px 0;
 }
-.testimonial_stars {
+.ref_stars {
     color: gold;
     font-size: 1.5em;
 }
-.testimonial_text {
+.ref_text {
     font-size: .875em;
     font-weight: 400;
     line-height: 2em;
     margin: 20px 0;
 }
-.testimonial_client {
+.ref_client {
     font-size: 1.125em;
     font-weight: 600;
 }
-.testimonial_profession {
+.ref_profession {
     font-size: .875em;
     font-weight: 400;
     margin: 6px 0;
 }
-.testimonial_source {
-    font-size: .875em;
-    font-weight: 400;
+
+/* Price Screen */
+.price_screen {
+    background-color: #fff;
+    margin: 0;
+    color: #000;
+    text-align: center;
+    padding: 3em 2em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -131,7 +136,7 @@
     .header_screen {
         padding: 40px 40px 0 40px
     }
-    .header {
+    .header_box {
         grid-template-columns: 40% 60%;
     }
     .header_img {
@@ -146,18 +151,18 @@
         align-self: start;
         padding: 40px 0 40px 40px;
     }
-    .btn_box{
+    .header_btn_box{
         display: flex;
         flex-direction: row;
     }
     .btn_2 {
         margin-left: 20px;
     }
-    .grid_box {
+    .client_grid_box {
         grid-template-columns: auto auto auto;
         column-gap: 10px;
     }
-    .testimonial_grid {
+    .ref_grid {
         grid-template-columns: auto auto;
         column-gap: 40px
     }
@@ -166,7 +171,7 @@
 
 @media only screen and (max-width: 1050px) {
 
-    .btn_box {
+    .header_btn_box {
         flex-direction: column;
     }
     .btn_2 {
