@@ -18,6 +18,7 @@ import Button1 from './Button1'
 import { FaShieldAlt } from "@react-icons/all-files/fa/FaShieldAlt";
 import { FaRunning } from "@react-icons/all-files/fa/FaRunning";
 import { FaDumbbell } from "@react-icons/all-files/fa/FaDumbbell";
+import { FaCaretDown } from "@react-icons/all-files/fa/FaCaretDown";
 
 const NavbarLinks = () => {
 
@@ -56,7 +57,7 @@ const subMenu = [
       </Link>
       <div className={nav_item_box}>
         <Link className={nav_item} to="/about">Łukasz</Link>
-        <Link className={nav_sub_item} to="/#">Oferta
+        <Link className={nav_sub_item} to="/#">Oferta <FaCaretDown />
           <div className={nav_dropdown}>
             <div className={nav_sub_box}>
               {subMenu.map((menu, index) => {
