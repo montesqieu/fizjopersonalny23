@@ -19,9 +19,9 @@ export default function Blog({ data }) {
               <Link to={"/blog/" + article.frontmatter.slug} key={article.id}>
                 <div>
                   <GatsbyImage image={article.frontmatter.thumb.childImageSharp.gatsbyImageData} />
-                  <h3>{ article.frontmatter.title }</h3>
-                  <p>{ article.frontmatter.category }</p>
-                  <p>{ article.frontmatter.date }</p>
+                  <h3>{article.frontmatter.title}</h3>
+                  <p>{article.frontmatter.category}</p>
+                  <p>{article.frontmatter.date}</p>
                 </div>
               </Link>
             ))}
