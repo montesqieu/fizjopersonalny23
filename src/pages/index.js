@@ -72,6 +72,7 @@ function shuffle(array) {
 export default function Home({ data }) {
   console.log(data)
   const reference = shuffle(data.reference.nodes).slice(0, 4);
+  const service = data.service.nodes;
   
   return (
     <Layout>
@@ -132,12 +133,14 @@ export default function Home({ data }) {
         <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
         <div className={services_grid}>
           <div className={services_item}>
-            <div className={services_image}>
-              <GatsbyImage image={data.service.childImageSharp.gatsbyImageData} alt="banner"/>
-            </div>
-            <div className={services_title}>nagłówek</div>
+            {service.map(service => (
+              <div className={services_image}>
+                <GatsbyImage image={service.childImageSharp.gatsbyImageData} alt="fizjoterapia bólu pleców"/>
+              </div>
+            ))}
+            <div className={services_title}>Fizjoterapia bólu pleców</div>
             <div className={services_content}>treść</div>
-            <div className={services_buttom}>przycisk</div>
+            <div className={services_buttom}>Czytaj dalej</div>
           </div>
         </div>
 
@@ -209,9 +212,12 @@ query Home {
       }
     }
   }
-  service: file(relativePath: {regex: "/(services)/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
+  service: allFile(filter: {absolutePath: {regex: "/(services)/"}}) {
+    nodes {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+      name
     }
   }
 }
