@@ -79,13 +79,31 @@
     padding-bottom: 10px;
 }
 
-/* Value  screen */
-.value_screen {
+/* Services screen */
+.services_screen {
     background-color: #e0f0ff;
     margin: 0;
     color: #000;
     text-align: center;
     padding: 3em 2em;
+}
+.services_grid {
+
+}
+.services_item {
+
+}
+.services_image {
+
+}
+.services_title {
+
+}
+.services_content {
+
+}
+.services_buttom {
+
 }
 
 /* Reference  screen */
