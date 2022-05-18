@@ -21,7 +21,13 @@ import {
           client_grid_box,
           client_grid_item,
           client_grid_icon,
-          value_screen,
+          services_screen,
+          services_grid,
+          services_item,
+          services_image,
+          services_title,
+          services_content,
+          services_buttom,
           ref_screen,
           ref_grid,
           ref_item,
@@ -121,22 +127,31 @@ export default function Home({ data }) {
           <Button1 />
         </div>
       </div>
-      <div className={value_screen}>
+      <div className={services_screen}>
         <h2 className={section_header}>Fizjoterapia i trening - zestaw kompletny</h2>
         <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
-        <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
+        <div className={services_grid}>
+          <div className={services_item}>
+            <div className={services_image}>
+              <GatsbyImage image={data.service.childImageSharp.gatsbyImageData} alt="banner"/>
+            </div>
+            <div className={services_title}>nagłówek</div>
+            <div className={services_content}>treść</div>
+            <div className={services_buttom}>przycisk</div>
+          </div>
+        </div>
+
+        <Toggle
+          title="Zobacz jak wygląda pierwsza wizyta"
+          titlesize="20"
+          titleweight="600"
+          titlecolor="000"
+        >
+
+
+
+        </Toggle>
+
         <div className={btn}>
           <Button1 />
         </div>
@@ -157,25 +172,6 @@ export default function Home({ data }) {
         <div className={section_header}>Cennik</div>
         <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
         <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
-        <Toggle>
-
-
-        <div className={value_screen}>
-        <h2 className={section_header}>Fizjoterapia i trening - zestaw kompletny</h2>
-        <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
-        <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-        <div>test test test test test test test test test test test test </div>
-      </div>
-
-
-        </Toggle>
         <div>test test test test test test test test test test test test </div>
         <div>test test test test test test test test test test test test </div>
         <div>test test test test test test test test test test test test </div>
@@ -211,6 +207,11 @@ query Home {
         opinion
         source
       }
+    }
+  }
+  service: file(relativePath: {regex: "/(services)/"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 }
