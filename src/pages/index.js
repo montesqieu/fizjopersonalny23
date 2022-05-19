@@ -21,13 +21,15 @@ import {
           client_grid_box,
           client_grid_item,
           client_grid_icon,
-          services_screen,
-          services_grid,
-          services_item,
-          services_image,
-          services_title,
-          services_content,
-          services_buttom,
+          service_screen,
+          service_grid,
+          service_item,
+          service_image,
+          service_title,
+          service_content,
+          service_summary,
+          service_link,
+          service_toggle,
           ref_screen,
           ref_grid,
           ref_item,
@@ -45,8 +47,10 @@ import { FaRunning } from "@react-icons/all-files/fa/FaRunning";
 import { GiShrimp } from "@react-icons/all-files/gi/GiShrimp";
 import { GiStopSign } from "@react-icons/all-files/gi/GiStopSign";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
+import { FaAngleRight } from "@react-icons/all-files/fa/FaAngleRight";
 import { GatsbyImage } from "gatsby-plugin-image"
 
+// Randomowe sortowanie referencji algorytmem Fisher-Yates'a
 function shuffle(array) {
   const length = array == null ? 0 : array.length;
 
@@ -67,6 +71,17 @@ function shuffle(array) {
   }
 
   return result;
+}
+
+// Szukanie obrazka z folderu "services" po nazwie pliku
+function getImageByName(images, name) {
+  const image = images.find((image) => image.name === name);
+
+  if (!image) {
+    throw new Error(`There is no image with specified name: ${name}`);
+  }
+
+  return image.childImageSharp.gatsbyImageData;
 }
 
 export default function Home({ data }) {
@@ -99,27 +114,27 @@ export default function Home({ data }) {
         <p className={section_paragraph}>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
         <div className={client_grid_box}>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><GiBackPain /></div>
+            <span className={client_grid_icon}><GiBackPain /></span>
             <p>cierpisz z powodu bólu pleców</p>
           </div>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><FaUserInjured /></div>
+            <span className={client_grid_icon}><FaUserInjured /></span>
             <p>nękają Cię kontuzje i/lub urazy</p>
           </div>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><FaFlagCheckered /></div>
+            <span className={client_grid_icon}><FaFlagCheckered /></span>
             <p>posiadasz ulotną motywację do ćwiczeń</p>
           </div>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><FaRunning /></div>
+            <span className={client_grid_icon}><FaRunning /></span>
             <p>Twoja technika ćwiczeń wymaga poprawy</p>
           </div>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><GiShrimp /></div>
+            <span className={client_grid_icon}><GiShrimp /></span>
             <p>irytuje Cię Twoja zgarbiona sylwetka</p>
           </div>
           <div className={client_grid_item}>
-            <div className={client_grid_icon}><GiStopSign /></div>
+            <span className={client_grid_icon}><GiStopSign /></span>
             <p>masz opór przed wykonywaniem ćwiczeń</p>
           </div>
         </div>
@@ -128,33 +143,48 @@ export default function Home({ data }) {
           <Button1 />
         </div>
       </div>
-      <div className={services_screen}>
+      <div className={service_screen}>
         <h2 className={section_header}>Fizjoterapia i trening - zestaw kompletny</h2>
         <div className={section_subheader}>Odzyskaj kontrolę nad sprawnym ciałem</div>
-        <div className={services_grid}>
-          <div className={services_item}>
-            {service.map(service => (
-              <div className={services_image}>
-                <GatsbyImage image={service.childImageSharp.gatsbyImageData} alt="fizjoterapia bólu pleców"/>
-              </div>
-            ))}
-            <div className={services_title}>Fizjoterapia bólu pleców</div>
-            <div className={services_content}>treść</div>
-            <div className={services_buttom}>Czytaj dalej</div>
+        <div className={service_grid}>
+          <div className={service_item}>
+            <div>
+              <GatsbyImage className={service_image} image={getImageByName(service, "fizjoterapia-bol-plecow")} alt="fizjoterapia bólu pleców"/>
+            </div>
+            <div className={service_content}>
+              <h3 className={service_title}><span>Fizjoterapia bólu pleców</span></h3>
+              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
+            </div>
+          </div>
+          <div className={service_item}>
+            <div>
+              <GatsbyImage className={service_image} image={getImageByName(service, "trening-medyczny")} alt="trening medyczny"/>
+            </div>
+            <div className={service_content}>
+              <h3 className={service_title}><span>Trening medyczny</span></h3>
+              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
+            </div>
+          </div>
+          <div className={service_item}>
+            <div>
+              <GatsbyImage className={service_image} image={getImageByName(service, "trening-personalny")} alt="trening personalny"/>
+            </div>
+            <div className={service_content}>
+              <h3 className={service_title}><span>Trening personalny</span></h3>
+              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <Link to="oferta/trening-personalny">
+                <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
+              </Link>
+            </div>
           </div>
         </div>
-
-        <Toggle
-          title="Zobacz jak wygląda pierwsza wizyta"
-          titlesize="20"
-          titleweight="600"
-          titlecolor="000"
-        >
-
-
-
-        </Toggle>
-
+        <div className={service_toggle}>
+            <Toggle title="Jak wygląda wizyta?" titleSize="1em" titleWeight="600" titleColor="000">
+              <div>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </div>
+            </Toggle>
+          </div>
         <div className={btn}>
           <Button1 />
         </div>
