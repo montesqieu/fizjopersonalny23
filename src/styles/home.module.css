@@ -68,42 +68,81 @@
 .client_grid_item {
     text-transform: uppercase;
     text-align: center;
-    font-size: 13px;
+    font-size: 0.8125em;
     font-weight: 600;
-    padding: 20px;
+    padding: 2em;
     line-height: 2em;
 }
 .client_grid_icon {
     font-size: 3em;
     color: #349eff;
-    padding-bottom: 10px;
+    padding-bottom: 1em;
 }
 
 /* Services screen */
-.services_screen {
+.service_screen {
     background-color: #e0f0ff;
     margin: 0;
     color: #000;
     text-align: center;
     padding: 3em 2em;
 }
-.services_grid {
-
+.service_grid {
+    display: grid;
+    row-gap: 2.5em;
 }
-.services_item {
-
+.service_item {
+    box-shadow: 0px 0px 4px #000;
+    border-radius: 0.5em;
+    background-color: #fff;
 }
-.services_image {
-
+.service_image {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
-.services_title {
-
+.service_content {
+    background-color: #fff;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
 }
-.services_content {
-
+.service_title {
+    background-color: transparent;
+    position: relative;
+    bottom: 0.75em;
+    font-size: 1em;
+    text-transform: uppercase;
 }
-.services_buttom {
-
+.service_title span {
+    background-color: #fff;
+    padding: 0.5em 0.75em;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 4px #000;
+}
+.service_summary {
+    padding: 1em;
+    font-size: 0.875em;
+    line-height: 1.5em;
+}
+.service_link {
+    padding: 1em 2em 2em 2em;
+    transition: all 200ms ease-in;
+    font-weight: 600;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.service_link:hover {
+    color: #349EFF;
+    cursor: pointer;
+}
+.service_toggle {
+    margin-top: 2em;
+    padding: 1em;
+    box-shadow: 0px 0px 4px #000;
+    border-radius: 0.5em;
+    background-color: #fff;
 }
 
 /* Reference  screen */
@@ -183,6 +222,10 @@
     .ref_grid {
         grid-template-columns: auto auto;
         column-gap: 40px
+    }
+    .service_grid {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
     }
 
 }
