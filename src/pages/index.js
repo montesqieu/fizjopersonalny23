@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Button1 from '../components/Button1'
 import Button2 from '../components/Button2'
-import Toggle from '../components/Toggle'
+import ToggleHome from '../components/ToggleHome'
 import { graphql, Link } from 'gatsby'
 import {
           header_screen,
@@ -27,9 +27,12 @@ import {
           service_image,
           service_title,
           service_content,
-          service_summary,
           service_link,
           service_toggle,
+          toggle_box,
+          toogle_grid,
+          toggle_arrow,
+          toggle_content,
           ref_screen,
           ref_grid,
           ref_item,
@@ -48,6 +51,7 @@ import { GiShrimp } from "@react-icons/all-files/gi/GiShrimp";
 import { GiStopSign } from "@react-icons/all-files/gi/GiStopSign";
 import { FaStar } from "@react-icons/all-files/fa/FaStar";
 import { FaAngleRight } from "@react-icons/all-files/fa/FaAngleRight";
+import { FaAngleDoubleDown } from "@react-icons/all-files/fa/FaAngleDoubleDown";
 import { GatsbyImage } from "gatsby-plugin-image"
 
 // Randomowe sortowanie referencji algorytmem Fisher-Yates'a
@@ -153,7 +157,7 @@ export default function Home({ data }) {
             </div>
             <div className={service_content}>
               <h3 className={service_title}><span>Fizjoterapia bólu pleców</span></h3>
-              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <p>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</p>
               <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
             </div>
           </div>
@@ -163,7 +167,7 @@ export default function Home({ data }) {
             </div>
             <div className={service_content}>
               <h3 className={service_title}><span>Trening medyczny</span></h3>
-              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <p>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</p>
               <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
             </div>
           </div>
@@ -173,18 +177,42 @@ export default function Home({ data }) {
             </div>
             <div className={service_content}>
               <h3 className={service_title}><span>Trening personalny</span></h3>
-              <div className={service_summary}>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</div>
+              <p>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi. To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem dla określonej usługi.</p>
               <Link to="oferta/trening-personalny">
                 <div className={service_link}>Czytaj dalej <FaAngleRight /></div>
               </Link>
             </div>
           </div>
         </div>
-        <div className={service_toggle}>
-            <Toggle title="Jak wygląda wizyta?" titleSize="1em" titleWeight="600" titleColor="000">
-              <div>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </div>
-            </Toggle>
-          </div>
+        {/* <div className={service_toggle}>
+            <ToggleHome title="Jak wygląda wizyta?">
+              <div className={toggle_box}>
+                <p>to jest nagłówek dotyczacy procesu wizyty</p>
+                <div className={toogle_grid}>
+                  <div className={toggle_content}>
+                    <span>1</span>
+                    <p>Dokładny wywiad pozwoli na poznanie przyczyn Twoich dolegliwości.</p>
+                  </div>
+                  <div className={toggle_arrow}><FaAngleDoubleDown /></div>
+                  <div className={toggle_content}>
+                    <span>2</span>
+                    <p>Dokładny wywiad pozwoli na poznanie przyczyn Twoich dolegliwości.</p>
+                  </div>
+                  <div className={toggle_arrow}><FaAngleDoubleDown /></div>
+                  <div className={toggle_content}>
+                    <span>3</span>
+                    <p>Dokładny wywiad pozwoli na poznanie przyczyn Twoich dolegliwości.</p>
+                  </div>
+                  <div className={toggle_arrow}><FaAngleDoubleDown /></div>
+                  <div className={toggle_content}>
+                    <span>4</span>
+                    <p>Dokładny wywiad pozwoli na poznanie przyczyn Twoich dolegliwości.</p>
+                  </div>
+                </div>
+                <p>to jest nagłówek dotyczacy procesu wizyty</p>
+              </div>
+            </ToggleHome>
+          </div> */}
         <div className={btn}>
           <Button1 />
         </div>
