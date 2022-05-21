@@ -90,6 +90,7 @@
 .service_grid {
     display: grid;
     row-gap: 2.5em;
+    margin-top: 3em;
 }
 .service_item {
     box-shadow: 0px 0px 4px #000;
@@ -105,6 +106,12 @@
     border-bottom-left-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
 }
+.service_content p {
+    padding: 1em 2em;
+    font-size: 0.875em;
+    line-height: 1.5em;
+    text-align: justify;
+}
 .service_title {
     background-color: transparent;
     position: relative;
@@ -117,11 +124,6 @@
     padding: 0.5em 0.75em;
     border-radius: 0.5em;
     box-shadow: 0px 0px 4px #000;
-}
-.service_summary {
-    padding: 1em;
-    font-size: 0.875em;
-    line-height: 1.5em;
 }
 .service_link {
     padding: 1em 2em 2em 2em;
@@ -143,6 +145,37 @@
     box-shadow: 0px 0px 4px #000;
     border-radius: 0.5em;
     background-color: #fff;
+}
+.toggle_box {
+    margin-top: 1em;
+}
+.toogle_grid {
+    display: grid;
+    row-gap: 2.5em;
+    margin: 1em 0;
+}
+.toggle_arrow {
+    font-size: 3em;
+}
+.toggle_content {
+    background-color: #349eff;
+    border-radius: 0.75em;
+    padding: 0.75em;
+    text-align: left;
+}
+.toggle_content span {
+    background-color: #FA6703;
+    position: relative;
+    bottom: 1.5em;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    font-size: 1em;
+    font-weight: 800;
+    color: #fff;
+}
+.toggle_content p {
+    font-size: 0.875em;
+    color: #fff;
 }
 
 /* Reference  screen */
@@ -217,15 +250,24 @@
     }
     .client_grid_box {
         grid-template-columns: auto auto auto;
-        column-gap: 10px;
+        column-gap: 0.75em;
     }
     .ref_grid {
         grid-template-columns: auto auto;
-        column-gap: 40px
+        column-gap: 2.5em;
     }
     .service_grid {
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 20px;
+        column-gap: 1em;
+    }
+    .toogle_grid {
+        grid-template-columns: 1fr 3em 1fr 3em 1fr 3em 1fr;
+        column-gap: 1em;
+    }
+    .toggle_arrow {
+        transform: rotateZ(-90deg);
+        display: flex;
+        align-items: center;
     }
 
 }
