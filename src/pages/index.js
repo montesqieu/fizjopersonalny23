@@ -34,6 +34,8 @@ import {
           toggle_arrow,
           toggle_content,
           ref_screen,
+          ref_header,
+          ref_source,
           ref_grid,
           ref_item,
           ref_stars,
@@ -218,6 +220,7 @@ export default function Home({ data }) {
         </div>
       </div>
       <div className={ref_screen}>
+        <div className={ref_header}>Opinie pacjentów i podopiecznych*,<br />którzy już skorzystali z usług fizjoterapii i treningu.</div>
         <div className={ref_grid}>
           {reference.map(reference => (
             <div className={ref_item}>
@@ -228,6 +231,19 @@ export default function Home({ data }) {
             </div>
             ))}
         </div>
+        <p className={ref_source}>*Cytowane rekomendacje pochodzą z wyszukiwarki Google. <b>Wpisz w Google: fizjopersonalny</b> i sprawdź pozostałe opinie moich pacjentów oraz podopiecznych.</p>
+        <div>
+          <div>
+            <GatsbyImage className={service_image} image={getImageByName(service, "fizjoterapia-bol-plecow")} alt="fizjoterapia bólu pleców"/>
+          </div>
+          <div>
+            <GatsbyImage className={service_image} image={getImageByName(service, "fizjoterapia-bol-plecow")} alt="fizjoterapia bólu pleców"/>
+          </div>
+          <div>
+            <GatsbyImage className={service_image} image={getImageByName(service, "fizjoterapia-bol-plecow")} alt="fizjoterapia bólu pleców"/>
+          </div>
+        </div>
+        <div className={btn}><Button1 /></div>
       </div>
       <div className={price_screen}>
         <div className={section_header}>Cennik</div>
@@ -245,9 +261,7 @@ export default function Home({ data }) {
         <div>test test test test test test test test test test test test </div>
         <div>test test test test test test test test test test test test </div>
         <div>test test test test test test test test test test test test </div>
-        <div className={btn}>
-          <Button1 />
-        </div>
+        <div className={btn}><Button1 /></div>
       </div>
     </Layout>
   );
