@@ -40,6 +40,13 @@ module.exports = {
         path: `${__dirname}/src/images/services`,
        },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options : {
+         name: `ref_home`,
+        path: `${__dirname}/src/images/ref_home`,
+       },
+    },
   ],
   siteMetadata: {
     title: 'FizjoPersonalny',
