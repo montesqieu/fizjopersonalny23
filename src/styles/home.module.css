@@ -184,6 +184,18 @@
     text-align: center;
     padding: 40px;
 }
+.ref_header {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0 1em 0;
+}
+.ref_source {
+    margin-top: 2em;
+    color: #fff;
+    font-size: 0.75em;
+    line-height: 2em;
+}
 .ref_grid {
     display: grid;
     row-gap: 40px;
