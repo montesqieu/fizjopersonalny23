@@ -66,6 +66,7 @@ const subMenu = [
             </div>
           </div>
         </Link>
+        <Link className={nav_item} to="https://fizjopersonalny.sklep.pl/">Sklep</Link>
         <Link className={nav_item} to="/blog">Blog</Link>
         <Link className={nav_item} to="/contact">Kontakt</Link>
       </div>
